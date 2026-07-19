@@ -1,0 +1,220 @@
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2.25rem;
+  gap: 1.5rem;
+}
+
+.dashboard-date {
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.05rem;
+  margin-top: 0.35rem;
+}
+
+.user-goal-badge {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1.5px solid #a7f3d0;
+  padding: 0.6rem 1.25rem;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.12);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat-card {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  transition: all 0.25s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-icon {
+  width: 62px;
+  height: 62px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon.calories { background: linear-gradient(135deg, #ff7e5f, #feb47b); }
+.stat-icon.protein { background: linear-gradient(135deg, #10b981, #059669); }
+.stat-icon.carbs { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+.stat-icon.fat { background: linear-gradient(135deg, #f59e0b, #d97706); }
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-content h3 {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+.stat-value {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.6rem;
+  font-family: var(--font-heading);
+}
+
+.progress-bar {
+  height: 10px;
+  background: #f1f5f9;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.5s ease-in-out;
+}
+
+.progress-fill.calories { background: linear-gradient(90deg, #ff7e5f, #feb47b); }
+.progress-fill.protein { background: linear-gradient(90deg, #10b981, #059669); }
+.progress-fill.carbs { background: linear-gradient(90deg, #3b82f6, #1d4ed8); }
+.progress-fill.fat { background: linear-gradient(90deg, #f59e0b, #d97706); }
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.water-tracker {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.25rem;
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+}
+
+.water-amount {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #0284c7;
+  display: block;
+  font-family: var(--font-heading);
+}
+
+.water-goal {
+  font-size: 0.9rem;
+  color: #0369a1;
+  font-weight: 500;
+}
+
+.water-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.action-btn {
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.action-btn:hover {
+  background: #ecfdf5;
+  border-color: #10b981;
+  color: #047857;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+}
+
+.rec-recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+}
+
+.rec-recipe-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.rec-recipe-card:hover {
+  border-color: #10b981;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.rec-recipe-card h4 {
+  color: #0f172a;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.rec-recipe-card p {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 0.85rem;
+  line-height: 1.4;
+}
+
+.rec-meta {
+  font-size: 0.85rem;
+  color: #059669;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
