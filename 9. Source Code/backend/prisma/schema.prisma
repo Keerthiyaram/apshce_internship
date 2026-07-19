@@ -1,0 +1,96 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGODB_URL")
+}
+
+model User {
+  id                  String     @id @default(auto()) @map("_id") @db.ObjectId
+  email               String     @unique
+  password            String
+  name                String
+  age                 Int?
+  weight              Float?
+  height              Float?
+  gender              String?
+  activityLevel       String?
+  goal                String?
+  dietaryRestrictions String?
+  createdAt           DateTime   @default(now())
+  updatedAt           DateTime   @updatedAt
+
+  meals               Meal[]
+  dailyLogs           DailyLog[]
+}
+
+model Food {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  category    String
+  calories    Float
+  protein     Float
+  carbs       Float
+  fat         Float
+  fiber       Float?
+  sugar       Float?
+  sodium      Float?
+  servingSize String
+  createdAt   DateTime @default(now())
+}
+
+model Meal {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId        String   @db.ObjectId
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name          String
+  mealType      String
+  foods         Json
+  totalCalories Float
+  totalProtein  Float
+  totalCarbs    Float
+  totalFat      Float
+  date          DateTime @default(now())
+  createdAt     DateTime @default(now())
+}
+
+model DailyLog {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId           String   @db.ObjectId
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date             DateTime @default(now())
+  targetCalories   Float?
+  consumedCalories Float    @default(0)
+  targetProtein    Float?
+  consumedProtein  Float    @default(0)
+  targetCarbs      Float?
+  consumedCarbs    Float    @default(0)
+  targetFat        Float?   @default(0)
+  consumedFat      Float    @default(0)
+  waterIntake      Float?   @default(0)
+  notes            String?
+  createdAt        DateTime @default(now())
+}
+
+model Recipe {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  name         String
+  description  String
+  ingredients  String
+  instructions String
+  prepTime     Int
+  cookTime     Int
+  servings     Int
+  calories     Float
+  protein      Float
+  carbs        Float
+  fat          Float
+  category     String
+  difficulty   String
+  imageUrl     String?
+  tags         String
+  createdAt    DateTime @default(now())
+}
+
